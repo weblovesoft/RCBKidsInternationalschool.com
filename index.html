@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RCB KIDS International Pre-School & DayCare</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RCB Kids International Pre-School & DayCare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -15,91 +16,56 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
-
     :root {
-      --primary: #5bc0eb;   /* bright blue */
-      --secondary: #fde74c; /* neon yellow */
-      --accent: #ff477e;    /* hot pink */
-      --bg-light: #2c2c54;  /* dark card bg */
+      --primary: #5bc0eb;
+      --secondary: #fde74c;
+      --accent: #ff477e;
+      --bg-light: #2c2c54;
     }
 
-    /* ===== FLOATING DECOR ===== */
-    .floating-shapes span {
-      position: absolute;
-      display: block;
-      z-index: 0;
-    }
-    .floating-shapes span::before {
-      content: "⭐";
-      font-size: 2rem;
-    }
-    .floating-shapes span.balloon::before { content: "🎈"; }
-    .floating-shapes span.moon::before { content: "🌙"; font-size: 2.5rem; }
-    .floating-shapes span.heart::before { content: "💖"; }
-
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
-    }
-    .floating-shapes span { animation: float 20s linear infinite; color: #fff; }
-    .floating-shapes span:nth-child(1) { left: 10%; animation-duration: 15s; }
-    .floating-shapes span:nth-child(2) { left: 25%; animation-duration: 20s; animation-delay: 3s; }
-    .floating-shapes span:nth-child(3) { left: 40%; animation-duration: 18s; animation-delay: 6s; }
-    .floating-shapes span:nth-child(4) { left: 55%; animation-duration: 22s; animation-delay: 9s; }
-    .floating-shapes span:nth-child(5) { left: 70%; animation-duration: 16s; animation-delay: 12s; }
-    .floating-shapes span:nth-child(6) { left: 85%; animation-duration: 25s; animation-delay: 5s; }
-
-    /* ===== HEADER ===== */
+    /* HEADER */
     header {
-      background: url("p1.jpeg") no-repeat center/cover; /* children playing background */
+      background: url("p1.jpeg") no-repeat center/cover;
       height: 500px;
-      color: #fff;
       text-align: center;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 1;
     }
     header::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.35); /* overlay for readability */
-      z-index: 0;
-    }
-    header img,
-    header p {
-      position: relative;
-      z-index: 1;
+      background: rgba(0,0,0,0.3);
     }
     header img {
       max-width: 220px;
-      margin-bottom: 10px;
+      background: transparent;
+      border: none;
+      z-index: 2;
+      filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
     }
     header p {
+      position: relative;
+      z-index: 2;
       font-size: 1.3rem;
       color: #fff;
     }
 
-    /* ===== NAVBAR ===== */
+    /* NAVBAR */
     nav {
       position: sticky;
       top: 0;
       background: #111;
       padding: 10px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       z-index: 10;
     }
-    nav img {
-      max-height: 50px;
-    }
-    nav .links {
-      text-align: right;
-    }
+    nav img { max-height: 50px; }
     nav a {
       color: #eee;
       margin: 0 12px;
@@ -109,40 +75,53 @@
     }
     nav a:hover { color: var(--secondary); }
 
-    /* ===== SECTIONS ===== */
+    /* SECTIONS */
     section {
       padding: 60px 20px;
       max-width: 1100px;
       margin: auto;
-      animation: slideUp 1s ease-in-out;
       position: relative;
-      z-index: 1;
     }
     h2 {
+      text-align: center;
       color: var(--secondary);
       font-size: 2.2rem;
-      margin-bottom: 20px;
-      text-align: center;
       font-family: 'Comic Neue', cursive;
+      margin-bottom: 20px;
     }
 
-    /* ===== CARDS ===== */
-    .card-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    /* CARDS */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
     .card {
       flex: 1 1 280px;
       background: var(--bg-light);
-      color: #fff;
       padding: 25px;
       border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
       border-top: 6px solid var(--accent);
+      text-align: center;
+      transition: transform 0.3s;
     }
-    .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-    .card h3 { color: var(--primary); margin-bottom: 10px; font-family: 'Comic Neue', cursive; }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-family: 'Comic Neue', cursive;
+    }
 
-    /* ===== GALLERY ===== */
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
     .gallery img {
       width: 100%;
       height: 250px;
@@ -153,7 +132,7 @@
     }
     .gallery img:hover { transform: scale(1.05); }
 
-    /* ===== FORMS ===== */
+    /* FORMS */
     .form-box {
       max-width: 450px;
       margin: 20px auto;
@@ -161,34 +140,29 @@
       border-radius: 15px;
       background: #1e1e3f;
       box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-      animation: fadeIn 1.2s ease-in-out;
     }
-    input, textarea, button {
+    input, button {
       width: 100%;
-      margin: 10px 0;
       padding: 12px;
+      margin: 10px 0;
       border-radius: 8px;
       border: 1px solid #555;
-      font-size: 1rem;
       background: #2c2c54;
-      color: #eee;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 8px rgba(91,192,235,0.6);
+      color: #fff;
     }
     button {
       background: var(--accent);
       border: none;
-      color: #fff;
       font-size: 1.1rem;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: 0.3s;
     }
-    button:hover { background: var(--secondary); color: #000; }
+    button:hover {
+      background: var(--secondary);
+      color: #000;
+    }
 
-    /* ===== TESTIMONIALS ===== */
+    /* TESTIMONIALS */
     .testimonial-slider {
       position: relative;
       max-width: 800px;
@@ -196,192 +170,238 @@
       overflow: hidden;
       border-radius: 15px;
       background: #1e1e3f;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
       padding: 30px;
     }
     .testimonial {
-      display: none;
+      opacity: 0;
+      transform: translateX(100%);
+      position: absolute;
+      width: 100%;
       text-align: center;
+      transition: all 0.8s ease;
       font-style: italic;
       color: #ddd;
-      animation: fadeIn 1s;
     }
-    .testimonial.active { display: block; }
+    .testimonial.active {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+    }
     .testimonial h4 {
       margin-top: 15px;
       color: var(--secondary);
       font-family: 'Comic Neue', cursive;
     }
+    .dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background: #666;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .dot.active { background: var(--accent); }
+
+    /* SOCIAL ICONS */
+    .social-icons {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 2rem;
+      color: var(--primary);
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-icons a:hover {
+      color: var(--accent);
+      transform: scale(1.2);
+    }
 
     footer {
       background: #111;
-      color: #eee;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      color: #fff;
+      padding: 15px;
     }
-
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   </style>
 </head>
 <body>
-  <!-- FLOATING DECOR -->
-  <div class="floating-shapes">
-    <span></span>
-    <span class="balloon"></span>
-    <span class="moon"></span>
-    <span class="heart"></span>
-    <span></span>
-    <span></span>
+
+<header>
+  <img src="logo.png" alt="RCB Kids Logo">
+  <p>Fun, Learning & Care – All in One Place</p>
+</header>
+
+<nav>
+  <img src="logo1.jpeg" alt="RCB Logo Small">
+  <div>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#franchise">Franchise</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p style="text-align:center; max-width:800px; margin:auto;">
+    At RCB KIDS, we provide world-class childcare and preschool education in a safe, colorful, and nurturing environment.
+  </p>
+</section>
+
+<section id="features">
+  <h2>Our Features</h2>
+  <div class="card-container">
+    <div class="card"><h3>Special Delivery</h3><p>Fun, age-appropriate teaching methods.</p></div>
+    <div class="card"><h3>Health & Safety</h3><p>Strict hygiene & CCTV monitoring.</p></div>
+    <div class="card"><h3>Trained Staff</h3><p>Qualified and friendly educators.</p></div>
+    <div class="card"><h3>Friendly Atmosphere</h3><p>Colorful, safe, and creative spaces.</p></div>
+    <div class="card"><h3>Nutritious Meals</h3><p>Healthy and tasty meals prepared with care.</p></div>
+  </div>
+</section>
+
+<section id="franchise">
+  <h2>Why Choose RCB Kids Franchise</h2>
+  <div class="card-container">
+    <div class="card"><h3>No Royalty</h3><p>Zero royalty fees.</p></div>
+    <div class="card"><h3>Affordable Fee</h3><p>Quality education at a reasonable cost.</p></div>
+    <div class="card"><h3>Modern Curriculum</h3><p>Blending Nursery & Montessori methods.</p></div>
+    <div class="card"><h3>Low Investment</h3><p>Faster growth with minimal investment.</p></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&h=400&q=80" alt="Kids playing outside">
+    <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=600&h=400&q=80" alt="Children playing together">
+    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&h=400&q=80" alt="Kids drawing">
+    <img src="p4.jpeg" alt="Learning in classroom">
+  </div>
+</section>
+
+<section id="testimonials">
+  <h2>What Parents Say</h2>
+  <div class="testimonial-slider">
+    <div class="testimonial active"><p>"RCB Kids made my child’s learning journey so enjoyable!"</p><h4>- Anjali Sharma</h4></div>
+    <div class="testimonial"><p>"The staff is amazing and very caring. Highly recommend."</p><h4>- Rahul Verma</h4></div>
+    <div class="testimonial"><p>"My kid loves going to RCB Kids every day!"</p><h4>- Neha Kapoor</h4></div>
+  </div>
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div style="text-align:center; margin-bottom:20px;">
+    <p>Email: rcbschool01@gmail.com | Phone: +91 8123412347</p>
   </div>
 
-  <!-- HEADER -->
-  <header>
-    <img src="logo.jpeg" alt="RCB KIDS Logo">
-    <p>Fun, Learning & Care – All in One Place</p>
-  </header>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/schoolrcb" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/reel/DN0N55KwhlO/?igsh=MWFwaDBsem44dXp6dA==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/918123412347" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://youtube.com/@rcbinternationalschool-un2cz?si=8469BhDKm98eJPjY" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+  </div>
 
-  <!-- NAV -->
-  <nav>
-    <img src="logo1.jpeg" alt="RCB KIDS Logo">
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#franchise">Franchise</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#enquiry">Enquiry</a>
-    </div>
-  </nav>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31093.224594549465!2d77.73610164955572!3d13.05774093497827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae05cd605d239b%3A0x19ab433c5d833e5a!2sRCB%20Kids%20International%20Pre-School!5e0!3m2!1sen!2sin!4v1756301644501!5m2!1sen!2sin"
+    width="100%" height="300" style="border:0; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.4);" allowfullscreen="" loading="lazy"></iframe>
+</section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About Us</h2>
-    <p style="text-align:center; max-width:800px; margin:auto;">
-      At RCB KIDS, we provide world-class childcare and preschool education in a safe, colorful, and nurturing environment. Our centers focus on learning through play, ensuring children grow happily while parents have peace of mind.
-    </p>
-  </section>
+<section id="enquiry">
+  <h2>Franchise Enquiry</h2>
+  <div class="form-box">
+    <form id="franchiseForm">
+      <input type="email" name="email" placeholder="Email *" required />
+      <input type="tel" name="phone" placeholder="Phone *" required />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
-  <!-- FEATURES -->
-  <section id="features">
-    <h2>Our Features</h2>
-    <div class="card-container">
-      <div class="card"><h3>Special Delivery</h3><p>Fun, age-appropriate teaching methods that engage children.</p></div>
-      <div class="card"><h3>Health & Safety</h3><p>Hygiene, CCTV, and professional safety practices.</p></div>
-      <div class="card"><h3>Trained Staff</h3><p>Qualified, verified, and friendly educators.</p></div>
-      <div class="card"><h3>Friendly Atmosphere</h3><p>Colorful, safe, and stimulating environment.</p></div>
-      <div class="card"><h3>Meals on Demand</h3><p>Nutritious meals prepared with care for children.</p></div>
-    </div>
-  </section>
+  <h2>Admission Enquiry</h2>
+  <div class="form-box">
+    <form id="admissionForm">
+      <input type="text" name="name" placeholder="Child's Name *" required />
+      <input type="email" name="email" placeholder="Email *" required />
+      <input type="tel" name="phone" placeholder="Phone *" required />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
 
-  <!-- FRANCHISE -->
-  <section id="franchise">
-    <h2>Why Choose RCB Kids Franchise</h2>
-    <div class="card-container">
-      <div class="card"><h3>No Royalty</h3><p>India’s first daycare franchise with zero royalty fees.</p></div>
-      <div class="card"><h3>Affordable Fee</h3><p>Quality education at reasonable cost.</p></div>
-      <div class="card"><h3>Curriculum</h3><p>Blend of Nursery & Montessori methods.</p></div>
-      <div class="card"><h3>Low Investment</h3><p>Grow faster with minimal investment.</p></div>
-    </div>
-  </section>
+<footer>
+  <p>&copy; 2025 RCB Kids International | All Rights Reserved</p>
+</footer>
 
-  <!-- GALLERY -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&h=400&q=80" alt="Kids playing outside">
-      <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=600&h=400&q=80" alt="Children playing together">
-      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&h=400&q=80" alt="Kids drawing in class">
-      <img src="p4.jpeg" alt="Children learning in school">
-    </div>
-  </section>
+<script>
+  // Telegram Integration
+  const BOT_TOKEN = "8253396812:AAGdKjda3UYwdqE7XmDYqxqVgQdOxDs8V54";
+  const CHAT_ID = "-4896982695";
+  const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <h2>What Parents Say</h2>
-    <div class="testimonial-slider">
-      <div class="testimonial active">
-        <p>"RCB Kids made my child’s learning journey so enjoyable and safe. Highly recommended!"</p>
-        <h4>- Anjali Sharma</h4>
-      </div>
-      <div class="testimonial">
-        <p>"The staff is amazing and caring. I feel secure leaving my child here every day."</p>
-        <h4>- Rahul Verma</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Wonderful atmosphere with lots of activities. My kid loves going here."</p>
-        <h4>- Neha Kapoor</h4>
-      </div>
-    </div>
-  </section>
-
-  <!-- ENQUIRY -->
-  <section id="enquiry">
-    <h2>Franchise Enquiry</h2>
-    <div class="form-box">
-      <form id="franchiseForm">
-        <input type="email" name="email" placeholder="Email *" required>
-        <input type="tel" name="phone" placeholder="Phone *" required>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-
-    <h2>Admission Enquiry</h2>
-    <div class="form-box">
-      <form id="admissionForm">
-        <input type="text" name="name" placeholder="Child's Name *" required>
-        <input type="email" name="email" placeholder="Email *" required>
-        <input type="tel" name="phone" placeholder="Phone *" required>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 RCB KIDS International | All Rights Reserved</p>
-  </footer>
-
-  <!-- JS -->
-  <script>
-    /* TELEGRAM INTEGRATION */
-    const BOT_TOKEN = "8253396812:AAGdKjda3UYwdqE7XmDYqxqVgQdOxDs8V54";
-    const CHAT_ID = "-4896982695";
-    const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-
-    function sendToTelegram(message) {
-      fetch(TELEGRAM_API, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-      });
-    }
-
-    document.getElementById("franchiseForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      let email = this.email.value, phone = this.phone.value;
-      sendToTelegram(`📩 Franchise Enquiry\nEmail: ${email}\nPhone: ${phone}`);
-      alert("Franchise enquiry submitted!");
-      this.reset();
+  function sendToTelegram(message) {
+    fetch(TELEGRAM_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: CHAT_ID, text: message }),
     });
+  }
 
-    document.getElementById("admissionForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      let name = this.name.value, email = this.email.value, phone = this.phone.value;
-      sendToTelegram(`🎓 Admission Enquiry\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`);
-      alert("Admission enquiry submitted!");
-      this.reset();
+  document.getElementById("franchiseForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let email = this.email.value, phone = this.phone.value;
+    sendToTelegram(`📩 Franchise Enquiry\nEmail: ${email}\nPhone: ${phone}`);
+    alert("Franchise enquiry submitted!");
+    this.reset();
+  });
+
+  document.getElementById("admissionForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let name = this.name.value, email = this.email.value, phone = this.phone.value;
+    sendToTelegram(`🎓 Admission Enquiry\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`);
+    alert("Admission enquiry submitted!");
+    this.reset();
+  });
+
+  // Testimonial Slider
+  let index = 0;
+  const testimonials = document.querySelectorAll(".testimonial");
+  const dots = document.querySelectorAll(".dot");
+
+  function showSlide(n) {
+    testimonials.forEach((testimonial, i) => {
+      testimonial.classList.remove("active");
+      dots[i].classList.remove("active");
     });
+    testimonials[n].classList.add("active");
+    dots[n].classList.add("active");
+  }
 
-    /* TESTIMONIAL SLIDER */
-    let index = 0;
-    const testimonials = document.querySelectorAll(".testimonial");
-    setInterval(() => {
-      testimonials[index].classList.remove("active");
-      index = (index + 1) % testimonials.length;
-      testimonials[index].classList.add("active");
-    }, 4000);
-  </script>
+  function nextSlide() {
+    index = (index + 1) % testimonials.length;
+    showSlide(index);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      index = i;
+      showSlide(index);
+    });
+  });
+
+  setInterval(nextSlide, 4000);
+</script>
+
 </body>
 </html>
